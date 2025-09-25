@@ -1,0 +1,7 @@
+venv/
+*.pem
+nohup.out
+__pycache__/
+*.log
+*.env
+
