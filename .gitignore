@@ -5,3 +5,39 @@ __pycache__/
 *.log
 *.env
 
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+venv/
+ENV/
+env/
+
+# Flask instance folder
+instance/
+
+# Pytest cache
+.pytest_cache/
+
+# Logs
+*.log
+
+# SQLite database
+*.sqlite3
+
+# Environment variables
+.env
+.env.*
+
+# VSCode settings
+.vscode/
+
+# macOS
+.DS_Store
+
+# Docker files (se você não quiser subir imagens, apenas Dockerfile e docker-compose.yml ficam)
+*.tar
+*.img
+
