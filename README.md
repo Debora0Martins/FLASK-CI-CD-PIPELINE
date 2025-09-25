@@ -17,13 +17,13 @@ Nginx
 
 Docker / Docker Compose
 
-Git & GitHub
+Git e GitHub
 
 CI/CD (GitHub Actions ou outro serviço similar)
 
 Pré-requisitos
 
-Antes de iniciar, certifique-se de ter instalado em sua máquina ou servidor:
+Antes de iniciar, certifique-se de ter instalado:
 
 Python 3.x
 
@@ -31,41 +31,41 @@ Git
 
 Docker e Docker Compose
 
-Nginx (opcional, caso não use Docker para deploy)
+Nginx (opcional, caso não use Docker para implantar)
 
-Conta no GitHub com token de acesso pessoal (para operações Git via HTTPS)
+Conta no GitHub com token de acesso pessoal (para transações Git via HTTPS)
 
 Estrutura do Projeto
-
 flask-app/
 │
-├── app.py                  # Aplicação Flask principal
-├── requirements.txt        # Dependências Python
-├── Dockerfile              # Imagem Docker para a aplicação
-├── .gitignore              # Arquivos e pastas ignoradas pelo Git
-├── README.md               # Documentação do projeto
+├── app.py              # Aplicação Flask principal
+├── requirements.txt    # Dependências Python
+├── Dockerfile          # Imagem Docker para a aplicação
+├── .gitignore          # Arquivos e pastas ignoradas pelo Git
+├── README.md           # Documentação do projeto
 └── config/
-    └── nginx.conf          # Configuração Nginx (opcional)
+    └── nginx.conf      # Configuração Nginx (opcional)
+
 Configuração do Ambiente
 
-Crie e ative um virtualenv:
+Criar e ativar virtualenv:
 
 python3 -m venv venv
 source venv/bin/activate
 
 
-Instale as dependências:
+Instalar dependências:
 
 pip install -r requirements.txt
 
 
-Configure variáveis de ambiente (exemplo seguro):
+Configurar variáveis de ambiente (exemplo seguro):
 
 export FLASK_ENV=production
 export SECRET_KEY='sua_chave_secreta'
 
 
-⚠️ Nunca suba arquivos com chaves, senhas ou certificados para o Git. Use .gitignore.
+⚠️ Nunca suba arquivos com chaves, senhas ou certificados para o Git. Utilize .gitignore.
 
 Executando Localmente
 
@@ -78,9 +78,9 @@ Ou utilizando Gunicorn para produção:
 
 gunicorn -w 4 -b 127.0.0.1:5000 app:app
 
-Deploy com Docker
+Implantação com Docker
 
-Build da imagem:
+Construir a imagem:
 
 docker build -t flask-app .
 
@@ -90,14 +90,14 @@ Rodar o container:
 docker run -d -p 5000:5000 flask-app
 
 
-Verifique se está rodando:
+Verificar se está rodando:
 
 docker ps
 curl http://localhost:5000
 
 Configuração Nginx (Opcional)
 
-Exemplo de configuração para proxy reverso:
+Exemplo de configuração de proxy reverso:
 
 server {
     listen 80;
@@ -120,9 +120,9 @@ sudo systemctl restart nginx
 
 CI/CD com GitHub Actions
 
-Exemplo de workflow .github/workflows/deploy.yml:
+Exemplo de workflow: .github/workflows/deploy.yml
 
-name: CI/CD Pipeline
+name: Pipeline CI/CD
 
 on:
   push:
@@ -131,24 +131,28 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v3
-    - name: Set up Python
-      uses: actions/setup-python@v4
-      with:
-        python-version: 3.11
-    - name: Install dependencies
-      run: pip install -r requirements.txt
-    - name: Run tests
-      run: pytest
-    - name: Build Docker image
-      run: docker build -t flask-app .
-    - name: Push to Docker Hub
-      run: |
-        echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
-        docker tag flask-app ${DOCKER_USERNAME}/flask-app:latest
-        docker push ${DOCKER_USERNAME}/flask-app:latest
+      - uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.11
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run tests
+        run: pytest
+
+      - name: Build Docker image
+        run: docker build -t flask-app .
+
+      - name: Push to Docker Hub
+        run: |
+          echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
+          docker tag flask-app ${{ secrets.DOCKER_USERNAME }}/flask-app:latest
+          docker push ${{ secrets.DOCKER_USERNAME }}/flask-app:latest
 
 
 💡 Configure Secrets no GitHub para senhas, tokens e chaves privadas.
@@ -157,15 +161,16 @@ Boas Práticas
 
 Use .gitignore para arquivos sensíveis (.env, .pem, venv/ etc.)
 
-Mantenha ambientes separados: desenvolvimento, teste, produção
+Manter ambientes separados: desenvolvimento, teste, produção
 
 Monitore logs do Gunicorn/Nginx e container Docker
 
-Use tokens de acesso pessoal (PAT) no GitHub ao invés de senhas
+Use tokens de acesso pessoal (PAT) no GitHub em vez de senhas
 
 Contato
 
 Débora Flaviana
+
 E-mail: ddeboraf.mar@gmail.com
 
 GitHub: https://github.com/Debora0Martins
