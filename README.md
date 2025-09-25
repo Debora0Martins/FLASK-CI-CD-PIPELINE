@@ -65,7 +65,7 @@ export FLASK_ENV=production
 export SECRET_KEY='sua_chave_secreta'
 
 
-⚠️ Nunca suba arquivos com chaves, senhas ou certificados para o Git. Utilize .gitignore.
+
 
 Executando Localmente
 
@@ -155,9 +155,8 @@ jobs:
           docker push ${{ secrets.DOCKER_USERNAME }}/flask-app:latest
 
 
-💡 Configure Secrets no GitHub para senhas, tokens e chaves privadas.
 
-Boas Práticas
+## Boas Práticas ##
 
 Use .gitignore para arquivos sensíveis (.env, .pem, venv/ etc.)
 
@@ -167,9 +166,9 @@ Monitore logs do Gunicorn/Nginx e container Docker
 
 Use tokens de acesso pessoal (PAT) no GitHub em vez de senhas
 
-Contato
+## Contato ##
 
-Débora Flaviana
+Autor: Débora Martins 
 
 E-mail: ddeboraf.mar@gmail.com
 
