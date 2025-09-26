@@ -1,14 +1,13 @@
 # FLASK CI/CD PIPELINE
 ![Python](https://img.shields.io/badge/python-3.11-blue)
 ![Flask](https://img.shields.io/badge/flask-2.3-green)
-![MySQL](https://img.shields.io/badge/mysql-8.0-orange)
 ![Docker](https://img.shields.io/badge/docker-latest-blue)
 ![Gunicorn](https://img.shields.io/badge/gunicorn-20.1.0-lightgrey)
 ![Nginx](https://img.shields.io/badge/nginx-1.28.0-brightgreen)
 ![AWS](https://img.shields.io/badge/AWS-CloudFormation-yellow)
 ![GitHub Repo](https://img.shields.io/badge/github-repository-blue)
 ![License](https://img.shields.io/badge/license-MIT-yellow)
-![CI/CD](https://img.shields.io/badge/6-CDs-Paypal.io-purple)
+
 
 ## Descrição do Projeto ##
 
