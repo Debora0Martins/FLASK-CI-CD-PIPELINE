@@ -1,12 +1,12 @@
 ## Descrição do Projeto ##
 
-Flask CI/CD Pipeline
+Projeto Flask CI/CD Pipeline na AWS com infraestrutura automatizada via CloudFormation, deploy com Docker, Gunicorn e Nginx.”
 
 Este projeto é uma aplicação web em Flask, configurada para execução em Docker e implantação em servidores EC2 com Gunicorn e Nginx, incluindo práticas básicas de CI/CD.
 
 O objetivo é demonstrar um pipeline profissional, seguro e escalável para projetos Flask, com atenção especial à separação de ambientes, automação e versionamento seguro do código.
 
-Tecnologias Utilizadas
+## Tecnologias Utilizadas ##
 
 Python 3.x
 
