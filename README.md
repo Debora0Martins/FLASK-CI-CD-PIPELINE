@@ -1,4 +1,4 @@
-## Descrição do Projeto
+## Descrição do Projeto ##
 
 Flask CI/CD Pipeline
 
@@ -36,7 +36,7 @@ Nginx (opcional, caso não use Docker para implantar)
 
 Conta no GitHub com token de acesso pessoal (para transações Git via HTTPS)
 
-Estrutura do Projeto
+## Estrutura do Projeto ##
 flask-app/
 │
 ├── app.py              # Aplicação Flask principal
@@ -47,58 +47,55 @@ flask-app/
 └── config/
     └── nginx.conf      # Configuração Nginx (opcional)
 
-Configuração do Ambiente
+• Configuração do Ambiente
 
-Criar e ativar virtualenv:
+  Criar e ativar virtualenv:
 
-python3 -m venv venv
-source venv/bin/activate
-
-
-Instalar dependências:
-
-pip install -r requirements.txt
+  python3 -m venv venv
+  source venv/bin/activate
 
 
-Configurar variáveis de ambiente (exemplo seguro):
+  Instalar dependências:
 
-export FLASK_ENV=production
-export SECRET_KEY='sua_chave_secreta'
-
+  pip install -r requirements.txt
 
 
+  Configurar variáveis de ambiente (exemplo seguro):
 
-Executando Localmente
-
-Com o ambiente ativo:
-
-flask run
+  export FLASK_ENV=production
+  export SECRET_KEY='sua_chave_secreta'
 
 
-Ou utilizando Gunicorn para produção:
+• Executando Localmente
 
-gunicorn -w 4 -b 127.0.0.1:5000 app:app
+  Com o ambiente ativo:
 
-Implantação com Docker
+  flask run
+  
+  utilizando Gunicorn para produção:
 
-Construir a imagem:
+  gunicorn -w 4 -b 127.0.0.1:5000 app:app
 
-docker build -t flask-app .
+  Implantação com Docker
+
+  Construir a imagem:
+
+  docker build -t flask-app .
 
 
-Rodar o container:
+  Rodar o container:
 
-docker run -d -p 5000:5000 flask-app
+  docker run -d -p 5000:5000 flask-app
 
 
-Verificar se está rodando:
+  Verificar se está rodando:
 
-docker ps
-curl http://localhost:5000
+  docker ps
+  curl http://localhost:5000
 
-Configuração Nginx (Opcional)
+  Configuração Nginx (Opcional)
 
-Exemplo de configuração de proxy reverso:
+## Exemplo de configuração de proxy reverso:
 
 server {
     listen 80;
@@ -114,14 +111,14 @@ server {
 }
 
 
-Recarregue o Nginx após alterações:
+  Recarregue o Nginx após alterações:
 
-sudo nginx -t
-sudo systemctl restart nginx
+  sudo nginx -t
+  sudo systemctl restart nginx
 
-CI/CD com GitHub Actions
+  CI/CD com GitHub Actions
 
-Exemplo de workflow: .github/workflows/deploy.yml
+• Exemplo de workflow: .github/workflows/deploy.yml
 
 name: Pipeline CI/CD
 
@@ -169,8 +166,8 @@ Use tokens de acesso pessoal (PAT) no GitHub em vez de senhas
 
 ## Contato ##
 
-Autor: Débora Martins 
+  ✍️Autor: Débora Martins 
 
-E-mail: ddeboraf.mar@gmail.com
+    E-mail: ddeboraf.mar@gmail.com
 
-GitHub: https://github.com/Debora0Martins
+    GitHub: https://github.com/Debora0Martins
